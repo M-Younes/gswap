@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  console: MyString
+  name: MyString
+  category: MyString
+  prefered: MyString
+  image: MyString
+  user_id: 1
+  note: MyString
+  swaped: false
+
+two:
+  console: MyString
+  name: MyString
+  category: MyString
+  prefered: MyString
+  image: MyString
+  user_id: 1
+  note: MyString
+  swaped: false

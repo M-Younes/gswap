@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Console:</strong>
+  <%= @post.console %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category %>
+</p>
+
+<p>
+  <strong>Prefered:</strong>
+  <%= @post.prefered %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @post.note %>
+</p>
+
+<p>
+  <strong>Swaped:</strong>
+  <%= @post.swaped %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

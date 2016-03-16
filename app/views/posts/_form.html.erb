@@ -1,0 +1,41 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :console %><br>
+    <%= f.select(:console, options_for_select(Post::CONSOLE_LIST), :include_blank => "Please choose one" )%>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :placeholder => "required" %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.text_field :category, :placeholder => "required" %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image, :placeholder => "required"  %>
+  </div>  
+  <div class="field">
+    <%= f.label :prefered %><br>
+    <%= f.text_field :prefered, :placeholder => "Optinal" %>
+  </div>
+  <div class="field">
+    <%= f.label :further_note %><br>
+    <%= f.text_field :note, :placeholder => "Optinal" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
