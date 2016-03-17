@@ -11,19 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316131656) do
+ActiveRecord::Schema.define(version: 20160317163000) do
 
   create_table "posts", force: :cascade do |t|
-    t.string   "console",    limit: 255
-    t.string   "name",       limit: 255
-    t.string   "category",   limit: 255
-    t.string   "prefered",   limit: 255
-    t.string   "image",      limit: 255
-    t.integer  "user_id",    limit: 4
-    t.string   "note",       limit: 255
+    t.string   "console",               limit: 255
+    t.string   "name",                  limit: 255
+    t.string   "category",              limit: 255
+    t.string   "prefered",              limit: 255
+    t.string   "image",                 limit: 255
+    t.integer  "user_id",               limit: 4
+    t.string   "note",                  limit: 255
     t.boolean  "swaped"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "post_img_file_name",    limit: 255
+    t.string   "post_img_content_type", limit: 255
+    t.integer  "post_img_file_size",    limit: 4
+    t.datetime "post_img_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

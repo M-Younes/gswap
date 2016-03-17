@@ -15,6 +15,9 @@
     <%= f.select(:console, options_for_select(Post::CONSOLE_LIST), :include_blank => "Please choose one" )%>
   </div>
   <div class="field">
+    <%= f.file_field :post_img %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name, :placeholder => "required" %>
   </div>

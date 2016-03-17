@@ -1,6 +1,10 @@
+<%= link_to "Create new Post", new_post_path%>
+<%= link_to "ps4", posts_path(:console=>"PS4")%>
+<%= link_to "PS3", posts_path(:console=>"PS3")%>
+<%= link_to "XBOX", posts_path(:console=>"XBOX")%>
+<%= link_to "WII", posts_path(:console=>"WII")%>
 <% if current_user %>
 <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
 <% else %>
 <%= link_to "Sign in", user_session_path %>
 <% end %>
-<%= link_to "Create new Post", new_post_path%>

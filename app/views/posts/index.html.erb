@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Posts</h1>
+<h3><%= params[:console] %></h3>
+<% if @posts.count == 0%>
+  <h3>There is no posts currently in this category</h3>
+<%end%>
 
 <table>
   <thead>
@@ -24,13 +28,15 @@
         <td><%= post.name %></td>
         <td><%= post.category %></td>
         <td><%= post.prefered %></td>
-        <td><%= post.image %></td>
+        <td><%= image_tag post.post_img.url(:post_index) %></td>
         <td><%= post.user_id %></td>
         <td><%= post.note %></td>
         <td><%= post.swaped %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user && current_user.id == post.user_id %>
+          <td><%= link_to 'Edit', edit_post_path(post) %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
