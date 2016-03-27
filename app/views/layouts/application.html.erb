@@ -8,8 +8,22 @@
 </head>
 <body>
 	<%= render 'header' %>
-
-<%= yield %>
-
+  <div class="col-md-3">
+  	<h3>Treanding</h3>
+      <ul class="nav nav-trending">
+      
+      </ul>
+  	<h3>News</h3>
+      <ul class="nav nav-trending">
+      
+      </ul>      
+  </div>
+	<div class="col-md-9">
+		<div class="row">
+			<%= yield %>
+		</div>
+	</div>
+	</div>
+	<%= render 'footer' %>
 </body>
 </html>
