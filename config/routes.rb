@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'pages/terms'
+
+  get 'pages/rules'
+
+  get 'pages/privacy'
+
   devise_for :admins
   devise_for :users
   resources :posts
