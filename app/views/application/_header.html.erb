@@ -46,9 +46,17 @@
 	          </ul>
 	        </li>
 	       <% else %>
-	    	   	<li><%= link_to "Sign in", new_admin_session_path, class: "btn"%></li>
+          <li><a class="btn-social sign-in" style="cursor:pointer;"><i class='icon-mail-alt'></i>  Sign in</a>
+          </li>
 	       <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+<script type="text/javascript">
+
+$(document).on('click', '.sign-in', function(e){
+  $(".sign_in").html("<%= j render(partial: 'sign_in') %>");
+  $('.sign_in #sign_in-modal').modal('show');
+});
+</script>
