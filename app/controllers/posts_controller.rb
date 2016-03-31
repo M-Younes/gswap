@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if params[:console]
-    @posts = Post.where(:console => params[:console])
+    @posts = Post.by_console(params[:console])
   else
     @posts = Post.all
   end

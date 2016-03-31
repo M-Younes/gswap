@@ -6,11 +6,12 @@ class Post < ActiveRecord::Base
 	validates :console, :inclusion=> { :in => CONSOLE_LIST }
 
 	default_scope -> { order('created_at DESC') }
+	scope :by_console, -> (console){where(console: console)}
 
 	has_attached_file :post_img, styles: { post_index: "250x350>", post_show: "325x475>" }, default_url: "/images/:style/missing.png"
   	validates_attachment_content_type :post_img, content_type: /\Aimage\/.*\Z/
 
-  def check_current_user(current_user,post) 
+  def can_edit?(current_user,post) 
   	if (current_user && current_user.id == post.user_id) || current_user.try(:admin?)
   		return true
   	end

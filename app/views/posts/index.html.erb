@@ -32,7 +32,7 @@
         <td><%= post.note %></td>
         <td><%= post.swaped %></td>
         <td><%= link_to 'Show', post %></td>
-        <% if post.check_current_user(current_user,post) %>
+        <% if post.can_edit?(current_user,post) %>
           <td><%= link_to 'Edit', edit_post_path(post) %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
