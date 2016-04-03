@@ -1,26 +1,35 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="modal fade" id="sign_in-modal">
     <div class="modal-dialog modal-sm" role ="document">
       <div class="modal-content">
         <div class="modal-body text-center">
-          <h3 class="modal-title">Please Sign in</h3>
-          <div class="modal-body">
-            <div class="form-group">
-              <%= f.email_field :email, :required => true, class: "form-control", :placeholder => "Email address" %>
+          <div class="modal-body" id="modal-container">
+            <h3 class="modal-title">Please Sign in</h3>
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-group">
+                  <%= f.email_field :email, :required => true, class: "form-control", :placeholder => "Email address" %>
+                </div>
+                <div class="form-group">
+                  <%= f.password_field :password, :required => true, class: "form-control", :placeholder => "password" %>
+                </div>
+                <div class="form-group">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                </div>
+              <div class="modal-footer">
+              <%= f.submit "Sign in", class: "btn btn-primary center-block" do %>
+                <% end %>
             </div>
-            <div class="form-group">
-              <%= f.password_field :password, :required => true, class: "form-control", :placeholder => "password" %>
-            </div>
-            <div class="form-group">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <div class="modal-footer">
-          <%= f.submit "Sign in", class: "btn btn-primary center-block" do %>
-            <% end %>
-        </div>
-        Don't have an account? <%= link_to "Sign up here", new_user_registration_path %>
+            Don't have an account?
+            <li><a class="btn-social sign-up" style="cursor:pointer;"><i class='icon-mail-alt'></i>  Sign up here</a>
+            </li>
+        <%end%>
       </div>
     </div>
   </div>
-<% end %>
+
+<script type="text/javascript">
+$(document).on('click', '.sign-up', function(e){
+  $("#modal-container").html("<%= j render(partial: 'sign_up') %>");
+
+});
+</script>
