@@ -13,26 +13,30 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav"  >
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select platform<span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%=selected_platform%>
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="console-dropdown">
             <li><%= link_to "PS4", posts_path(:console=>"PS4")%></li>
             <li><%= link_to "PS3", posts_path(:console=>"PS3")%></li>
             <li><%= link_to "XBOX", posts_path(:console=>"XBOX")%></li>
             <li><%= link_to "WII", posts_path(:console=>"WII")%></li>
           </ul>
         </li>
+        <li>
+          <%= form_tag posts_path, :method => 'get' do %>
+            <%= text_field_tag :search, params[:search]%>
+            <%= submit_tag "Search"%>
+          <% end %>
+        </li>
       </ul>
-      <form class="navbar-form navbar-left navbar-left-search" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Type a game name">
-        </div>
-        <button type="submit" class="btn btn-default">Search</button>
-      </form>
+
       <ul class="nav navbar-nav navbar-right">
       	<li><%= link_to "Create new Post", new_post_path, class: "btn"%></li>
       	<% if current_user %>
+
 	        <li class="dropdown">
 	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 	          		<%= image_tag("user_photo_profile.jpg") %>
@@ -54,9 +58,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 <script type="text/javascript">
-
 $(document).on('click', '.sign-in', function(e){
   $(".sign_in").html("<%= j render(partial: 'sign_in') %>");
   $('.sign_in #sign_in-modal').modal('show');
+});
+</script>
+
+<script type="text/javascript">
+$("#console-dropdown li a ").click(function(){
+  var selText = $(this).text();
+  console.log(selText)
+  $(this).parents('.navbar-nav').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+   
 });
 </script>

@@ -16,5 +16,10 @@ class Post < ActiveRecord::Base
   		return true
   	end
   end
+  
+  def self.search(search)
+	  where("name LIKE ?", "%#{search}%") 
+	  where("console LIKE ?", "%#{search}%")
+	end
 
 end
