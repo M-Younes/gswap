@@ -43,7 +43,7 @@
 	          </a>
 	          <ul class="dropdown-menu">
 	            <li><a href="#">Timeline</a></li>
-	            <li><a href="#">Profile</a></li>
+	            <li><%= link_to "Profile", users_show_path(:id =>current_user.id) %></li>
 	            <li><a href="#">Notifications</a></li>
 	            <li role="separator" class="divider"></li>
 	            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
