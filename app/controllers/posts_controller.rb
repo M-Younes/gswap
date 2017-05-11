@@ -60,6 +60,8 @@ class PostsController < ApplicationController
     end
   end
 
+  def update2
+  end
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
